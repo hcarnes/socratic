@@ -1,1 +1,5 @@
 <%= link_to "Ask a Question", new_question_path, class: "btn btn-primary" %>
+<hr>
+<div class="card-group">
+  <%= render @questions %>
+</div>
