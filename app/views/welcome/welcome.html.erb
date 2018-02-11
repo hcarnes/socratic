@@ -1,1 +1,8 @@
-Welcome to Socratic.
+<% if current_user %>
+  <%= image_tag current_user.image_url if current_user.image_url %><br>
+  Welcome to Socratic, <%=current_user.email%>. Looking good!
+  <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+<% else %>
+  Welcome to Socratic. <br>
+  <%= link_to "Login with Google", user_google_oauth2_omniauth_authorize_path %>
+<% end %>
