@@ -2,7 +2,7 @@
   <div class="card-body">
     <h5 class="card-title"><%= question.summary %></h5>
     <p class="card-question-text"><%= question.content %></p>
-    <%= link_to "Answer question", question_path(question), class: 'btn btn-primary' if current_page?(questions_path) %>
+    <%= link_to "Answer question", question_path(question), class: 'btn btn-secondary' if current_page?(questions_path) %>
   </div>
   <div class="card-footer">
     <small class="text-muted">
