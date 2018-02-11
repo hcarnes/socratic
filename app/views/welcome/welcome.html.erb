@@ -1,5 +1,5 @@
 <% if current_user %>
-  <%= image_tag current_user.image_url if current_user.image_url %><br>
+  <%= image_tag current_user.image_url, class: "img-thumbnail profile-image" if current_user.image_url %><br>
   <p class="lead">Welcome to Socratic, <%=current_user.email%>. Looking good!</p>
   <%= button_to "Log out", destroy_user_session_path, method: :delete %>
 <% else %>
