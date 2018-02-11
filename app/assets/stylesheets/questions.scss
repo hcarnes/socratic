@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// When question text is in a card group, wrap at 75px
 .card-group .card-question-text {
   height: 75px;
   overflow: hidden;
