@@ -1,1 +1,19 @@
-<%= answer.answer %>
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col select-answer">
+        &#x2705;
+      </div>
+      <div class="col-11">
+        <%= answer.answer %>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">
+      Asked by <%=answer.user.email %>,
+      <%= content_tag(:abbr, title: answer.created_at) do %>
+        <%= time_ago_in_words(answer.created_at) %> ago
+      <% end %></small>
+  </div>
+</div>

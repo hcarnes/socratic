@@ -8,3 +8,16 @@
   overflow: hidden;
   white-space: pre-wrap;
 }
+
+.select-answer {
+  font-size: 24pt;
+  text-align: center;
+  opacity: 0.2;
+}
+
+.answers {
+  margin-top: 3em;
+}
+.answers .card {
+  margin: 10px 0 10px 0;
+}
