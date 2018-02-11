@@ -6,9 +6,9 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Questions</a>
-        </li>
+        <%= content_tag :li, class: "nav-item" + (current_page?(questions_path) && " active" || "") do %>
+          <%= link_to "Questions", questions_path, class: "nav-link" %>
+        <% end %>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
