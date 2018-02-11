@@ -4,4 +4,6 @@
 
 .card-group .card-question-text {
   height: 75px;
+  overflow: hidden;
+  white-space: pre-wrap;
 }
