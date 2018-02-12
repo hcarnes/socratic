@@ -17,7 +17,7 @@
   </div>
   <div class="card-footer">
     <small class="text-muted">
-      Asked by <%=answer.user.full_name %>,
+      Answered by <%=answer.user.full_name %>,
       <%= content_tag(:abbr, title: answer.created_at) do %>
         <%= time_ago_in_words(answer.created_at) %> ago
       <% end %>
