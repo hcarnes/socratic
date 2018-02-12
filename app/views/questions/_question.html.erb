@@ -5,10 +5,12 @@
     <%= link_to "Answer question", question_path(question), class: 'btn btn-secondary' if current_page?(questions_path) %>
   </div>
   <div class="card-footer">
+    <small><%= "Tags: #{question.tag_names}" if question.tags.any? %></small><br>
     <small class="text-muted">
       Asked by <%=question.user.email %>,
       <%= content_tag(:abbr, title: question.created_at) do %>
         <%= time_ago_in_words(question.created_at) %> ago
-      <% end %></small>
+      <% end %>
+    </small>
   </div>
 </div>
