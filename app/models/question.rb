@@ -8,6 +8,10 @@ class Question < ApplicationRecord
   validates_presence_of :content, message: "Empty questions are not virtuous"
   validates_presence_of :summary, message: "Brevity is the soul of wit, so summary is required"
 
+  def self.search(query)
+    where("summary LIKE ? OR content LIKE ?", "%#{query}%", "%#{query}%")
+  end
+
   def tag_names
     self.tags.map(&:name).join(", ")
   end

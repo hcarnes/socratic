@@ -15,8 +15,8 @@
       <% end %>
     </ul>
     <%= form_tag questions_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
-      <%= text_field_tag "search", "", class: "form-control mr-sm-2", placeholder: "Search" %>
-      <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0"%>
+      <%= text_field_tag "search", params[:search], class: "form-control mr-sm-2", placeholder: "Search" %>
+      <%= submit_tag "Search", class: "btn btn-outline-dark my-2 my-sm-0"%>
     <% end %>
   </div>
 </nav>

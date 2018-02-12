@@ -1,7 +1,11 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions = Question.all
+    if params[:search].present?
+      @questions = Question.search(params[:search])
+    else
+      @questions = Question.all
+    end
   end
 
   def new
