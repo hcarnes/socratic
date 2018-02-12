@@ -6,9 +6,6 @@ Rails.application.routes.draw do
           patch :select_answer
         end
       end
-      member do
-        post :submit_answer
-      end
     end
     
   end

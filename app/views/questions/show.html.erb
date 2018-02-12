@@ -1,21 +1,6 @@
 <%= render @question %>
 
 <hr>
-<% if @answer.errors.any? %>
-  <div class="alert alert-info" role="alert">
-    <ul>
-      <% @answer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-<%= form_for @answer, url: submit_answer_question_path(@question) do |f| %>
-  <div class="form-group">
-    <%= f.label :answer %>
-    <%= f.text_area :answer, class: "form-control", rows: 3 %>
-  </div>
-  <%= f.submit "Answer question", class: "btn btn-primary" %>
-<% end %>
+<%= render 'answers/form' %>
 
 <div class="answers"><%= render @question.answers %></div>

@@ -23,17 +23,6 @@ class QuestionsController < ApplicationController
     @answer = Answer.new
   end
 
-  def submit_answer
-    @question = Question.find(params[:id])
-    @answer = current_user.answers.build(answer: params[:answer][:answer], question_id: @question.id)
-
-    if @answer.save
-      redirect_to question_path(@question), notice: "Your answer has been recorded"
-    else
-      render :show
-    end
-  end
-
   private
 
   def permitted_question_params

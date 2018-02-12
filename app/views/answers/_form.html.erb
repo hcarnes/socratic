@@ -1,0 +1,17 @@
+<% if @answer.errors.any? %>
+  <div class="alert alert-info" role="alert">
+    <ul>
+      <% @answer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for [@question, @answer] do |f| %>
+  <div class="form-group">
+    <%= f.label :answer %>
+    <%= f.text_area :answer, class: "form-control", rows: 3 %>
+  </div>
+  <%= f.submit "Answer question", class: "btn btn-primary" %>
+<% end %>
