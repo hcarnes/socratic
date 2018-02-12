@@ -31,6 +31,7 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
 gem 'pg', '~> 0.18'
 
 group :development, :test do
