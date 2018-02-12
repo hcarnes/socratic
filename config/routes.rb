@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   authenticated do
     resources :questions do
+      resources :answers do
+        member do
+          patch :select_answer
+        end
+      end
       member do
         post :submit_answer
       end
     end
-    resources :answers
+    
   end
   
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

@@ -1,9 +1,15 @@
 <div class="card">
   <div class="card-body">
     <div class="row">
-      <div class="col select-answer">
-        &#x2705;
-      </div>
+      <% if answer.question.selected_answer == answer %>
+        <div class="col select-answer selected-answer">
+          &#x2705;
+        </div>
+      <% else %>
+        <div class="col select-answer">
+          <%= link_to "&#x2705;".html_safe, select_answer_question_answer_path(answer.question, answer), method: :patch %>
+        </div>
+      <% end %>
       <div class="col-11">
         <%= answer.answer %>
       </div>
@@ -14,6 +20,7 @@
       Asked by <%=answer.user.email %>,
       <%= content_tag(:abbr, title: answer.created_at) do %>
         <%= time_ago_in_words(answer.created_at) %> ago
-      <% end %></small>
+      <% end %>
+    </small>
   </div>
 </div>
