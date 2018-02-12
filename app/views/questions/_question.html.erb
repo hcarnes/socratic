@@ -7,7 +7,7 @@
   <div class="card-footer">
     <small><%= "Tags: #{question.tag_names}" if question.tags.any? %></small><br>
     <small class="text-muted">
-      Asked by <%=question.user.email %>,
+      Asked by <%=question.user.full_name %>,
       <%= content_tag(:abbr, title: question.created_at) do %>
         <%= time_ago_in_words(question.created_at) %> ago
       <% end %>

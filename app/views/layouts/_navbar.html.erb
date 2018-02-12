@@ -12,6 +12,9 @@
         <%= content_tag :li, class: "nav-item" + (current_page?(questions_path) && " active" || "") do %>
           <%= link_to "Questions", questions_path, class: "nav-link" %>
         <% end %>
+        <li class="nav-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+      <% else %>
+        <li class="nav-item"><%= link_to "Login with Google", user_google_oauth2_omniauth_authorize_path, class: "nav-link" %></li>
       <% end %>
     </ul>
     <%= form_tag questions_path, method: :get, class: "form-inline my-2 my-lg-0" do %>

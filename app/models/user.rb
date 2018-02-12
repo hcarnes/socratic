@@ -13,7 +13,7 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
     end
 
-    user.update(image_url: auth.info.image)
+    user.update(image_url: auth.info.image, full_name: auth.info.name)
     user
   end
 end
