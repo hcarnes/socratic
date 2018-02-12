@@ -5,12 +5,10 @@
   "keywords": ["question", "answer", "Q&A"],
   "env": {
     "GOOGLE_CLIENT_ID": {
-      "description": "Google OAuth Flow Client ID.",
-      "generator": "secret"
+      "description": "Google OAuth Flow Client ID."
     },
     "GOOGLE_CLIENT_SECRET": {
-      "description": "Google OAuth Flow Client Secret.",
-      "generator": "secret"
+      "description": "Google OAuth Flow Client Secret."
     }
   }
 }
