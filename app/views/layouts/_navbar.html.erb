@@ -17,9 +17,11 @@
         <li class="nav-item"><%= link_to "Login with Google", user_google_oauth2_omniauth_authorize_path, class: "nav-link" %></li>
       <% end %>
     </ul>
-    <%= form_tag questions_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
-      <%= text_field_tag "search", params[:search], class: "form-control mr-sm-2", placeholder: "Search" %>
-      <%= submit_tag "Search", class: "btn btn-outline-dark my-2 my-sm-0"%>
+    <% if current_user %>
+      <%= form_tag questions_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
+        <%= text_field_tag "search", params[:search], class: "form-control mr-sm-2", placeholder: "Search" %>
+        <%= submit_tag "Search", class: "btn btn-outline-dark my-2 my-sm-0"%>
+      <% end %>
     <% end %>
   </div>
 </nav>
