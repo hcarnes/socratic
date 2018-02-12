@@ -25,3 +25,8 @@
 .answers .card {
   margin: 10px 0 10px 0;
 }
+
+.answers .card-footer {
+  display: flex;
+  justify-content: space-between;
+}
