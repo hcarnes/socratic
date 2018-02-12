@@ -1,7 +1,7 @@
 {
   "name": "Socratic",
   "description": "A Q&A app for small organizations",
-  "repository": "https://github.com/hecarnes/socratic",
+  "repository": "https://github.com/hcarnes/socratic",
   "keywords": ["question", "answer", "Q&A"],
   "env": {
     "GOOGLE_CLIENT_ID": {
