@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20180212031653) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
-    t.integer "question_id"
+    t.bigint "question_id"
     t.text "answer"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -23,8 +26,8 @@ ActiveRecord::Schema.define(version: 20180212031653) do
   end
 
   create_table "question_tags", force: :cascade do |t|
-    t.integer "tag_id"
-    t.integer "question_id"
+    t.bigint "tag_id"
+    t.bigint "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_question_tags_on_question_id"
@@ -34,10 +37,10 @@ ActiveRecord::Schema.define(version: 20180212031653) do
   create_table "questions", force: :cascade do |t|
     t.text "content", null: false
     t.string "summary", null: false
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "selected_answer_id"
+    t.bigint "selected_answer_id"
     t.index ["selected_answer_id"], name: "index_questions_on_selected_answer_id"
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
@@ -69,4 +72,10 @@ ActiveRecord::Schema.define(version: 20180212031653) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "users"
+  add_foreign_key "question_tags", "questions"
+  add_foreign_key "question_tags", "tags"
+  add_foreign_key "questions", "answers", column: "selected_answer_id"
+  add_foreign_key "questions", "users"
 end

@@ -34,6 +34,7 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'bootstrap', '~> 4.0.0'
+gem 'pg', '~> 0.18'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
