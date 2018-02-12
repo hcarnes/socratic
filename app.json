@@ -10,5 +10,8 @@
     "GOOGLE_CLIENT_SECRET": {
       "description": "Google OAuth Flow Client Secret."
     }
+  },
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
   }
 }
