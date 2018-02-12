@@ -1,4 +1,4 @@
-![Thoughtful Cat (Logo)](https://github.com/hcarnes/socratic/raw/master/public/logo.png)
+![Thoughtful Cat (Logo)](https://github.com/hcarnes/socratic/raw/master/public/logo.png | width=130)
 
 # Socratic
 
