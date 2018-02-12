@@ -1,3 +1,5 @@
+![Thoughtful Cat (Logo)](https://github.com/hcarnes/socratic/raw/master/public/logo.png)
+
 # Socratic
 
 A Q&A application for small organizations.
