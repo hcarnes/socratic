@@ -9,7 +9,7 @@ class Question < ApplicationRecord
   validates_presence_of :summary, message: "Brevity is the soul of wit, so summary is required"
 
   def self.search(query)
-    where("summary LIKE ? OR content LIKE ?", "%#{query}%", "%#{query}%")
+    distinct.left_outer_joins(:tags).where("summary LIKE :query OR content LIKE :query OR tags.name LIKE :query", query: "%#{query}%")
   end
 
   def tag_names
