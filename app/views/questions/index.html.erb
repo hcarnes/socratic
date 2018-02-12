@@ -1,7 +1,5 @@
 <%= link_to "Ask a Question", new_question_path, class: "btn btn-primary" %>
 <hr>
-<% @questions.each_cons(3) do |question_group| %>
-  <div class="card-group">
-    <%= render question_group %>
-  </div>
-<% end %>
+<div class="card-deck">
+  <%= render @questions %>
+</div>
