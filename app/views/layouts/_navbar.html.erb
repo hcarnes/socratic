@@ -12,6 +12,7 @@
         <%= content_tag :li, class: "nav-item" + (current_page?(questions_path) && " active" || "") do %>
           <%= link_to "Questions", questions_path, class: "nav-link" %>
         <% end %>
+        <li class="nav-item"><%= link_to current_user.full_name, user_path(current_user), class: "nav-link" %></li>
         <li class="nav-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
       <% else %>
         <li class="nav-item"><%= link_to "Login with Google", user_google_oauth2_omniauth_authorize_path, class: "nav-link" %></li>
