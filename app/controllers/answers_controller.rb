@@ -1,5 +1,13 @@
 class AnswersController < ApplicationController
 
+  def index
+    if params[:user_id]
+      @answers = Answer.where(user_id: params[:user_id])
+    else
+      @answers = Answer.all
+    end
+  end
+
   def new
     @answer = Answer.new
   end

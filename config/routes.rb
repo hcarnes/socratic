@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   authenticated do
+    resources :users, only: [:show] do
+      resources :answers
+    end
     resources :questions do
       resources :answers do
         member do
