@@ -21,3 +21,15 @@ Socratic supports one click deploy to Heroku, just click the image above and hav
 
 Begin by running `bundle install`. Ensure configuration is correct in `database.yml` and run `rake db:create`
 followed by `rake db:migrate`. You should then be able to start the Rails server with `rails s`, and login with Google.
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/hcarnes/socratic. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+The app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the socratic codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/sinatra-final-project-hcarnes/blob/master/CODE_OF_CONDUCT.md).
