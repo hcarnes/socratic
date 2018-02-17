@@ -28,7 +28,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/hcarne
 
 ## License
 
-The app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The app is available as open source under the terms of the [Apache 2 License](https://opensource.org/licenses/Apache-2.0).
 
 ## Code of Conduct
 
