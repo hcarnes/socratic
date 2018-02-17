@@ -8,6 +8,12 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def answered
+    @questions = Question.answered
+
+    render :index
+  end
+
   def new
     @question = Question.new
   end

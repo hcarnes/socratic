@@ -12,6 +12,10 @@ class Question < ApplicationRecord
     distinct.left_outer_joins(:tags).where("summary LIKE :query OR content LIKE :query OR tags.name LIKE :query", query: "%#{query}%")
   end
 
+  def self.answered
+    where("selected_answer_id IS NOT NULL")
+  end
+
   def tag_names
     self.tags.map(&:name).join(", ")
   end

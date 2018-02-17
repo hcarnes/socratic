@@ -4,6 +4,9 @@ Rails.application.routes.draw do
       resources :answers
     end
     resources :questions do
+      collection do
+        get :answered
+      end
       resources :answers do
         member do
           patch :select_answer
