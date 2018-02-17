@@ -16,13 +16,10 @@ class Question < ApplicationRecord
     where("selected_answer_id IS NOT NULL")
   end
 
-  def tag_names
-    self.tags.map(&:name).join(", ")
-  end
-
-  def tag_names=(names)
-    self.tags = names.split(",").map(&:strip).map do |name|
-      Tag.find_or_initialize_by(name: name)
+  def question_tags_attributes=(attrs)
+    attrs.each_value.reject {|x| x["name"].blank? || x["color"].blank? }.each do |tag_color_hash|
+      tag = Tag.find_or_initialize_by(name: tag_color_hash["name"])
+      self.question_tags.build(tag: tag, color: tag_color_hash["color"])
     end
   end
 end

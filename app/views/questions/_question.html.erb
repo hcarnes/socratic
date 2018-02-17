@@ -4,7 +4,7 @@
     <p class="card-question-text"><%= question.content %></p>
   </div>
   <div class="card-footer">
-    <small><%= "Tags: #{question.tag_names}" if question.tags.any? %></small><br>
+    <%= colored_tags(question.question_tags) %><br>
     <small class="text-muted">
       Asked by <%= link_to question.user.full_name, user_path(question.user) %>,
       <%= content_tag(:abbr, title: question.created_at) do %>

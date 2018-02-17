@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    @question_tags = 3.times.map {@question.question_tags.build}
   end
 
   def create
@@ -36,6 +37,6 @@ class QuestionsController < ApplicationController
   private
 
   def permitted_question_params
-    params.require(:question).permit(:content, :summary, :tag_names)
+    params.require(:question).permit(:content, :summary, :tag_names, question_tags_attributes: [:name, :color])
   end
 end
