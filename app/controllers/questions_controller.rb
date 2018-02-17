@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    @question_tags = 3.times.map {@question.question_tags.build}
+    3.times.map {@question.question_tags.build}
   end
 
   def create

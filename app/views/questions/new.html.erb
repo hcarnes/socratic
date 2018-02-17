@@ -12,7 +12,7 @@
     <%= f.label :summary %>
     <%= f.text_field :summary, class: "form-control" %>
   </div>
-  <%= f.fields_for :question_tags, @question_tags do |qtf| %>
+  <%= f.fields_for :question_tags do |qtf| %>
     <div class="form-group">
       <%= qtf.text_field :name, placeholder: "Tag Name" %><%= qtf.text_field :color, placeholder: "Color", type: "color" %>
     </div>
