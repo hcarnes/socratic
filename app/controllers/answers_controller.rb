@@ -8,6 +8,11 @@ class AnswersController < ApplicationController
     end
   end
 
+  def new
+    @answer = Answer.new(question_id: params[:question_id])
+    @question = @answer.question
+  end
+
   def edit
     @answer = current_user.answers.find(params[:id])
     @question = @answer.question
