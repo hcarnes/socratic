@@ -25,6 +25,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to question_path(@question), notice: "Your question has been submitted"
     else
+      (3 - @question.question_tags.size).times.map {@question.question_tags.build(color: "#FEC30A")}
       render :new
     end
   end
