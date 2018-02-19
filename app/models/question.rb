@@ -17,7 +17,8 @@ class Question < ApplicationRecord
   end
 
   def question_tags_attributes=(attrs)
-    attrs.each_value.reject {|x| x["name"].blank? || x["color"].blank? }.each do |tag_color_hash|
+    # look through array of tags submitted by the user and remove the ones that are blank/submitted as empty
+    attrs.values.reject {|x| x["name"].blank? || x["color"].blank? }.each do |tag_color_hash|
       tag = Tag.find_or_initialize_by(name: tag_color_hash["name"])
       self.question_tags.build(tag: tag, color: tag_color_hash["color"])
     end
