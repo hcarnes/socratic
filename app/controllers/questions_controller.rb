@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    3.times.map {@question.question_tags.build}
+    3.times.map {@question.question_tags.build(color: "#FEC30A")}
   end
 
   def create
