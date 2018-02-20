@@ -6,7 +6,7 @@ module ApplicationHelper
         "Tags: ".html_safe +
         question_tags.map do |qt|
           content_tag(:span, qt.name, style: "color: #{qt.color}")
-        end.join().html_safe
+        end.join(', ').html_safe
       end
     end
   end

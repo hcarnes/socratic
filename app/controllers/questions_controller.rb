@@ -19,6 +19,20 @@ class QuestionsController < ApplicationController
     3.times.map {@question.question_tags.build(color: "#FEC30A")}
   end
 
+  def edit
+    @question = current_user.questions.find(params[:id])
+  end
+
+  def update
+    @question = current_user.questions.find(params[:id])
+
+    if @question.update(permitted_question_params)
+      redirect_to question_path(@question), notice: "Your question has been updated"
+    else
+      render :edit
+    end
+  end
+
   def create
     @question = current_user.questions.build(permitted_question_params)
 

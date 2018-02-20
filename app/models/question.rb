@@ -2,7 +2,7 @@ class Question < ApplicationRecord
   belongs_to :user
   belongs_to :selected_answer, class_name: "Answer", optional: true
   has_many :answers
-  has_many :question_tags
+  has_many :question_tags, autosave: true
   has_many :tags, through: :question_tags
 
   validates_presence_of :content, message: "Empty questions are not virtuous"
@@ -17,7 +17,11 @@ class Question < ApplicationRecord
   end
 
   def question_tags_attributes=(attrs)
-    # look through array of tags submitted by the user and remove the ones that are blank/submitted as empty
+    # Mark any existing question tags for destruction, so they can be replaced by the freshly built tags on save
+    self.question_tags.each(&:mark_for_destruction)
+
+    # convert attrs hash to array of values, then look through array of tags submitted by the user
+    # and remove the ones that have a blank color or tag name
     attrs.values.reject {|x| x["name"].blank? || x["color"].blank? }.each do |tag_color_hash|
       tag = Tag.find_or_initialize_by(name: tag_color_hash["name"])
       self.question_tags.build(tag: tag, color: tag_color_hash["color"])

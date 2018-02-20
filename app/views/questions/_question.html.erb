@@ -10,7 +10,8 @@
       <%= content_tag(:abbr, title: question.created_at) do %>
         <%= time_ago_in_words(question.created_at) %> ago
       <% end %>
-    </small>
+    </small><br><hr>
     <small><%= link_to "New Answer", new_question_answer_path(question) %></small>
+    <% if question.user == current_user %><small><%= link_to "Edit Question", edit_question_path(question) %></small> <% end %>
   </div>
 </div>
