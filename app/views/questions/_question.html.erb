@@ -12,6 +12,7 @@
       <% end %>
     </small><br><hr>
     <small><%= link_to "New Answer", new_question_answer_path(question) %></small>
-    <% if question.user == current_user %><small><%= link_to "Edit Question", edit_question_path(question) %></small> <% end %>
+    <% if question.user == current_user %><small><%= link_to "Edit Question", edit_question_path(question) %> 
+      <%= link_to "Delete Question", question_path(question), method: :delete %></small> <% end %>
   </div>
 </div>

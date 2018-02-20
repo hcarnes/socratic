@@ -49,6 +49,16 @@ class QuestionsController < ApplicationController
     @answer = Answer.new
   end
 
+  def destroy
+    question = current_user.questions.find(params[:id])
+
+      if question.destroy
+        redirect_to questions_path, notice: "Question has been deleted"
+      else
+        redirect_to question_path, notice: "Error"
+      end
+  end
+
   private
 
   def permitted_question_params
