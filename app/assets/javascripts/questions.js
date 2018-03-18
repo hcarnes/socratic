@@ -4,8 +4,8 @@ $(document).ready(() => {
   $(".user-info-popover").popover({
     trigger: 'hover',
     placement: 'top',
-    content: () => {
-      return "hello world"
+    content: function () {
+      debugger
     }
   })
 

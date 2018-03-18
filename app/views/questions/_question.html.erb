@@ -6,7 +6,7 @@
   <div class="card-footer">
     <%= colored_tags(question.question_tags) %><br>
     <small class="text-muted">
-      Asked by <%= link_to question.user.full_name, user_path(question.user), class: 'user-info-popover' %>,
+      Asked by <%= link_to question.user.full_name, user_path(question.user), class: 'user-info-popover', data: {user_id: question.user.id} %>,
       <%= content_tag(:abbr, title: question.created_at) do %>
         <%= time_ago_in_words(question.created_at) %> ago
       <% end %>
