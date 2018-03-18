@@ -25,6 +25,9 @@ $(document).ready(() => {
     const profile = await profileResponse.json()
 
 
-    return `<img src=${profile.image_url} width="100">`
+    return `<img src=${profile.image_url} width="100"><br>
+    ${profile.questions_count} questions<br>
+    ${profile.answers_count} answers<br>
+    Joined ${profile.tenure} ago`
   }
 })
