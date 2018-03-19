@@ -12,9 +12,10 @@
     <%= f.label :summary %>
     <%= f.text_field :summary, class: "form-control" %>
   </div>
+  <datalist id="tag-list"></datalist>
   <%= f.fields_for :question_tags do |qtf| %>
     <div class="form-group">
-      <%= qtf.text_field :name, placeholder: "Tag Name" %><%= qtf.text_field :color, placeholder: "Color", type: "color" %>
+      <%= qtf.text_field :name, placeholder: "Tag Name", list: "tag-list", autocomplete: "off" %><%= qtf.text_field :color, placeholder: "Color", type: "color" %>
     </div>
   <% end %>
   <div class="form-group">
