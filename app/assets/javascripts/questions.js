@@ -1,6 +1,4 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-$(document).ready(() => {
+document.addEventListener("DOMContentLoaded", async function () {
   $(".user-info-popover").popover({
     trigger: 'hover',
     placement: 'right',
@@ -30,4 +28,20 @@ $(document).ready(() => {
     ${profile.answers_count} answers<br>
     Joined ${profile.tenure} ago`
   }
-})
+
+  async function updateTagList() {
+    const tagsResponse = await fetch(`/tags`, {
+      headers: {
+        'Accept': 'application/json'
+      },
+      credentials: 'same-origin'
+    })
+    const tags = await tagsResponse.json()
+    const optionsHtml = tags.map(tag => `<option value="${tag.name}">${tag.times_used}</option>`).join("")
+    $('#tag-list').html(optionsHtml)
+  }
+
+  if ($('#tag-list').length > 0) {
+    await updateTagList()
+  }
+});
