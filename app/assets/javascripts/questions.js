@@ -21,11 +21,14 @@ document.addEventListener("DOMContentLoaded", async function () {
       credentials: 'same-origin'
     })
     const profile = await profileResponse.json()
-
+    const answersHtml = profile.answers.slice(0, 3).map(answer => answer.answer).join("<br>")
 
     return `<img src=${profile.image_url} width="100"><br>
     ${profile.questions_count} questions<br>
     ${profile.answers_count} answers<br>
+    Latest Answers:<br>
+    ${answersHtml}
+    <br>
     Joined ${profile.tenure} ago`
   }
 
