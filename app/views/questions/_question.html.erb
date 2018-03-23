@@ -4,7 +4,7 @@
     <p class="card-question-text"><%= question.content %></p>
   </div>
   <div class="card-footer">
-    <%= colored_tags(question.question_tags) %><span class="add-tag" data-question-id="<%=question.id%>">&#x2795;</span><br>
+    <%= colored_tags(question.question_tags) %><% if current_page?(question_path(question)) && current_user == question.user %><span class="add-tag" data-question-id="<%=question.id%>">&#x2795;</span><% end %><br>
     <small class="text-muted">
       Asked by <%= link_to question.user.full_name, user_path(question.user), class: 'user-info-popover', data: {user_id: question.user.id} %>,
       <%= content_tag(:abbr, title: question.created_at) do %>

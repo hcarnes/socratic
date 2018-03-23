@@ -48,21 +48,24 @@ document.addEventListener("DOMContentLoaded", async function () {
     await updateTagList()
   }
 
-  $('span.add-tag').on('click', function () {
+  $(document).on('click', 'span.add-tag', function () {
     this.outerHTML = `<form class="add-tag" data-question-id=${this.dataset.questionId}><input name="name" placeholder="Tag Name"><input type="submit"></form>`
   })
 
   $(document).on('submit', '.add-tag', async function (e) {
     e.preventDefault()
-    const newTagName = $(this).serialize().name
+    const formData = new FormData(this)
     const addTagResponse = await fetch(`/questions/${this.dataset.questionId}/tags`, {
       headers: {
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
       },
       credentials: 'same-origin',
-      method: 'post'
+      method: 'post',
+      body: formData
     })
     const newTag = await addTagResponse.json()
-    debugger
+    document.querySelector(".question-tags").innerHTML += `, <span>${newTag.name}</span>`
+    this.outerHTML = `<span class="add-tag" data-question-id="${this.dataset.questionId}">&#x2795;</span>`
   })
 });
