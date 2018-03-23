@@ -47,4 +47,22 @@ document.addEventListener("DOMContentLoaded", async function () {
   if ($('#tag-list').length > 0) {
     await updateTagList()
   }
+
+  $('span.add-tag').on('click', function () {
+    this.outerHTML = `<form class="add-tag" data-question-id=${this.dataset.questionId}><input name="name" placeholder="Tag Name"><input type="submit"></form>`
+  })
+
+  $(document).on('submit', '.add-tag', async function (e) {
+    e.preventDefault()
+    const newTagName = $(this).serialize().name
+    const addTagResponse = await fetch(`/questions/${this.dataset.questionId}/tags`, {
+      headers: {
+        'Accept': 'application/json'
+      },
+      credentials: 'same-origin',
+      method: 'post'
+    })
+    const newTag = await addTagResponse.json()
+    debugger
+  })
 });

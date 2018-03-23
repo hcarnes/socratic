@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :answers
     end
     resources :questions do
+      resources :tags
       collection do
         get :answered
       end
