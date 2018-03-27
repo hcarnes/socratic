@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   async function updateTagList() {
-    const tags = Tag.all()
+    const tags = await Tag.all()
     const optionsHtml = tags.map(tag => tag.asOptionHtml()).join("")
 
     $('#tag-list').html(optionsHtml)
