@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   $(document).on('click', 'span.add-tag', function () {
-    this.outerHTML = `<form class="add-tag" data-question-id=${this.dataset.questionId}><input name="name" placeholder="Tag Name"><input type="submit"></form>`
+    this.outerHTML = `<form class="add-tag" data-question-id=${this.dataset.questionId}><input autofocus name="name" placeholder="Tag Name"><input type="submit"></form>`
   })
 
   $(document).on('submit', '.add-tag', async function (e) {
@@ -64,8 +64,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       method: 'post',
       body: formData
     })
-    const newTag = await addTagResponse.json()
-    document.querySelector(".question-tags").innerHTML += `, <span>${newTag.name}</span>`
+    const newTag = new Tag(await addTagResponse.json())
+    document.querySelector(".question-tags").innerHTML += ", " + newTag.asHtml()
     this.outerHTML = `<span class="add-tag" data-question-id="${this.dataset.questionId}">&#x2795;</span>`
   })
 });
