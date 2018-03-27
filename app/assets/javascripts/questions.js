@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       },
       credentials: 'same-origin'
     })
-    const tags = await tagsResponse.json()
-    const optionsHtml = tags.map(tag => `<option value="${tag.name}">${tag.times_used}</option>`).join("")
+    const tags = (await tagsResponse.json()).map(tagObject => new Tag(tagObject))
+    const optionsHtml = tags.map(tag => tag.asOptionHtml()).join("")
     $('#tag-list').html(optionsHtml)
   }
 
