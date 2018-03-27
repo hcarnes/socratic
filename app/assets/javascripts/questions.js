@@ -20,14 +20,9 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   async function updateTagList() {
-    const tagsResponse = await fetch(`/tags`, {
-      headers: {
-        'Accept': 'application/json'
-      },
-      credentials: 'same-origin'
-    })
-    const tags = (await tagsResponse.json()).map(tagObject => new Tag(tagObject))
+    const tags = Tag.all()
     const optionsHtml = tags.map(tag => tag.asOptionHtml()).join("")
+
     $('#tag-list').html(optionsHtml)
   }
 
@@ -42,16 +37,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   $(document).on('submit', '.add-tag', async function (e) {
     e.preventDefault()
     const formData = new FormData(this)
-    const addTagResponse = await fetch(`/questions/${this.dataset.questionId}/tags`, {
-      headers: {
-        'Accept': 'application/json',
-        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-      },
-      credentials: 'same-origin',
-      method: 'post',
-      body: formData
-    })
-    const newTag = new Tag(await addTagResponse.json())
+    const newTag = await Tag.addTagToQuestion(this.dataset.questionId, formData)
+
     document.querySelector(".question-tags").innerHTML += ", " + newTag.asHtml()
     this.outerHTML = `<span class="add-tag" data-question-id="${this.dataset.questionId}">&#x2795;</span>`
   })
