@@ -8,6 +8,8 @@ module ApplicationHelper
           content_tag(:span, qt.name, style: "color: #{qt.color}")
         end.join(', ').html_safe
       end
+    else
+      content_tag(:small, "", class: "question-tags")
     end
   end
 end
