@@ -19,4 +19,15 @@ class User {
     <br>
     Joined ${this.tenure} ago`
   }
+
+  static async getById(id) {
+    const profileResponse = await fetch(`/users/${id}`, {
+      headers: {
+        'Accept': 'application/json'
+      },
+      credentials: 'same-origin'
+    })
+
+    return new User(await profileResponse.json())
+  }
 }

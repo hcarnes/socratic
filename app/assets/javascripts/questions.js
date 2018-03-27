@@ -14,13 +14,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   async function renderUserProfile() {
     const userId = this.dataset.userId
-    const profileResponse = await fetch(`/users/${userId}`, {
-      headers: {
-        'Accept': 'application/json'
-      },
-      credentials: 'same-origin'
-    })
-    const userProfile = new User(await profileResponse.json())
+    const userProfile = await User.getById(userId)
 
     return userProfile.profilePopupHtml()
   }
