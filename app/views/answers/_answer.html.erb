@@ -7,7 +7,7 @@
         </div>
       <% else %>
         <div class="col select-answer">
-          <%= link_to "&#x2705;".html_safe, select_answer_question_answer_path(answer.question, answer), method: :patch if answer.question.user == current_user %>
+          <%= link_to "&#x2705;".html_safe, select_answer_question_answer_path(answer.question, answer), method: :patch, title: "green check marks best answer" if answer.question.user == current_user %>
         </div>
       <% end %>
       <div class="col-11">

@@ -20,7 +20,9 @@ class Tag {
       },
       credentials: 'same-origin'
     })
-    const tags = (await tagsResponse.json()).map(tagObject => new Tag(tagObject))
+    const tags = (await tagsResponse.json()).map(tagObject => new Tag(tagObject)).sort(function (a, b) {
+      return b.times_used - a.times_used
+    })
     return tags
   }
 

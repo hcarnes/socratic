@@ -15,6 +15,7 @@
   <datalist id="tag-list"></datalist>
   <%= f.fields_for :question_tags do |qtf| %>
     <div class="form-group">
+      <span class="delete-tag">&#x2716;</span>
       <%= qtf.text_field :name, placeholder: "Tag Name", list: "tag-list", autocomplete: "off" %><%= qtf.text_field :color, placeholder: "Color", type: "color" %>
     </div>
   <% end %>
