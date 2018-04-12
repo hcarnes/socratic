@@ -21,6 +21,7 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = current_user.questions.find(params[:id])
+    @question.question_tags.build(color: "#FEC30A")
   end
 
   def update

@@ -2,12 +2,14 @@ module ApplicationHelper
 
   def colored_tags(question_tags)
     if question_tags.any?
-      content_tag(:small) do
+      content_tag(:small, class: "question-tags") do
         "Tags: ".html_safe +
         question_tags.map do |qt|
           content_tag(:span, qt.name, style: "color: #{qt.color}")
         end.join(', ').html_safe
       end
+    else
+      content_tag(:small, "", class: "question-tags")
     end
   end
 end

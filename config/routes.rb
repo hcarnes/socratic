@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :answers
     end
     resources :questions do
+      resources :tags
       collection do
         get :answered
       end
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
         end
       end
     end
-    
+    resources :tags
   end
   
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
